@@ -1,0 +1,56 @@
+package rahulshettyacademy.pageobjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class ProductCatalogue {
+
+	WebDriver driver;
+	
+	//before you touch anything in the class
+	//the constructor method is the first thing that will execute
+	public ProductCatalogue(WebDriver driver) {
+		
+		this.driver=driver;
+		
+		PageFactory.initElements(driver, this);
+			
+	}
+	
+	//PageFactory
+	//WebElement userEmail = driver.findElement(By.id("userEmail"));
+	//below code does the same operation as above line of code 
+	
+	@FindBy(id="userEmail")
+	WebElement userEmail;
+	
+	//driver.findElement(By.id("userPassword"));
+	@FindBy(id="userPassword")
+	WebElement password;
+	
+	//driver.findElement(By.id("login"))
+	@FindBy(id="login")
+	WebElement submit;
+	
+	//action method
+	public void loginApplication(String email, String pw) {
+		
+		userEmail.sendKeys("email");
+		password.sendKeys("pw");
+		submit.click();
+		
+	}
+	
+	public void goTo() {
+		
+		//launch the browser with below URL
+		driver.get("https://rahulshettyacademy.com/client");
+	
+		
+		
+	}
+}
+
